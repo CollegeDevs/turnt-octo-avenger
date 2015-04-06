@@ -14,7 +14,10 @@
   <strong>Make public:</strong>
   <%= @project.make_public %>
 </p>
+<%= render partial: 'projects/invite_user'%>
+<h1><%= @user.email if @user%><%= @pu %></h1>
 <%= link_to 'New Board', new_project_board_path(@project)%>
+
 <h3>Boards</h3>
 <div class="row">
 <% @project.boards.each do |b| %>

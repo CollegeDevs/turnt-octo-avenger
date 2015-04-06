@@ -15,5 +15,6 @@
 class Project < ActiveRecord::Base
 	belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
 	has_many :boards
-	belongs_to :user
+	has_many :projectusers
+	has_many :users, through: :projectusers
 end

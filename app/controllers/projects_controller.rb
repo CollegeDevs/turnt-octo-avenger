@@ -10,6 +10,18 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @user = User.find_by(email: params[:keyword])
+    if @project.users.include? @user
+      @pu = "Already User"
+    else
+      if @user
+        @pu = @project.projectusers.new
+        @pu.user = @user
+        @pu.save
+      else
+        @pu = "Not Found"
+      end
+    end
   end
 
   # GET /projects/new
@@ -63,6 +75,7 @@ class ProjectsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
@@ -71,6 +84,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :make_public)
+      params.require(:project).permit(:name, :description, :make_public, :user_key)
     end
 end

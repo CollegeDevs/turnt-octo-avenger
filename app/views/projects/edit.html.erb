@@ -1,6 +1,35 @@
 <h1>Editing Project</h1>
 
-<%= render 'form' %>
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name , autofocus: true,class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description,class: "form-control", rows: 20, placeholder: "This can be anything about your project.This is what will be shown to the user.MARKUPENABLED!" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :make_public %><br>
+    <%= f.check_box :make_public %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class:'btn btn-primary'%>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', @project %> |
 <%= link_to 'Back', projects_path %>

@@ -30,4 +30,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
+  has_many :projectusers
+  has_many :projects, through: :projectusers
+  has_many :boardusers
+  has_many :boards, through: :boardusers
+
+
 end
