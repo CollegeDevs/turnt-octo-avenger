@@ -1,0 +1,26 @@
+<%= form_for([@project,Board.new]) do |f| %>
+  <% if @board.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@board.errors.count, "error") %> prohibited this board from being saved:</h2>
+
+      <ul>
+      <% @board.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name , class: 'form-control',autofocus: true%>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description , class: 'form-control', rows: 10%>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Create', class: 'btn btn-primary'%>
+  </div>
+<% end %>

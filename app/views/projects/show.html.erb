@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Make public:</strong>
+  <%= @project.make_public %>
+</p>
+<%= link_to 'New Board', new_project_board_path(@project)%>
+<h3>Boards</h3>
+<div class="row">
+<% @project.boards.each do |b| %>
+	<div class="col-md-3">
+	<h4><%=link_to b.name , project_board_path(@project, b) %></h4>
+	<%= b.description %>
+	</div>
+<% end %>
+</div>
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
