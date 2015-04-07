@@ -1,9 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+<div class="col-md-8">
+<h2 class="text-center"><%= @project.name %></h2>
+</div>
+<% if @project.users.include? current_user || current_user == @project.owner %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+<div class="col-md-4" style="margin-top: 10px">
+<%= render partial: 'projects/invite_user'%>
+</div>
+<% end %>
+</div>
 
 <p>
   <strong>Description:</strong>
@@ -14,8 +19,9 @@
   <strong>Make public:</strong>
   <%= @project.make_public %>
 </p>
-<%= render partial: 'projects/invite_user'%>
-<h1><%= @user.email if @user%><%= @pu %></h1>
+
+
+
 <%= link_to 'New Board', new_project_board_path(@project)%>
 
 <h3>Boards</h3>

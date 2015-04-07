@@ -1,6 +1,5 @@
-<form>
-          <legend>Search</legend>
-          <div class='col-xs-4'>
-            <input type='text' class='form-control' value='<%= params[:keyword] %>' name='keyword' placeholder='Keyword' >
-          </div>
-        </form>
+
+<%= form_tag invite_user_project_path(@project), class: 'form-inline' do  %>
+	<%= email_field_tag :my_input, params[:my_input], placeholder: 'Search User', class: 'form-control'  %>
+	<%= submit_tag "Add User" , class: 'form-control' %>
+<% end %>

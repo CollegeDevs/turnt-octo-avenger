@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :own_auth, only: [:edit, :update, :destroy, :invite_user]
   # GET /projects
   # GET /projects.json
   def index
@@ -10,18 +11,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @user = User.find_by(email: params[:keyword])
-    if @project.users.include? @user
-      @pu = "Already User"
-    else
-      if @user
-        @pu = @project.projectusers.new
-        @pu.user = @user
-        @pu.save
-      else
-        @pu = "Not Found"
-      end
-    end
   end
 
   # GET /projects/new
@@ -75,6 +64,23 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def invite_user
+    @user = User.find_by_email(params[:my_input])
+    @project = Project.find(params[:id])
+    if @project.users.include? @user
+      redirect_to @project, notice: 'Already a member'
+    elsif @user
+      @pu = @user.projectusers.new
+      @pu.project = @project
+      redirect_to @project, notice: 'User was successfully Added.'
+    else
+      redirect_to @project, notice: 'Could not found the User'
+    end
+  end
+
+  def remove_user
+
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -85,5 +91,12 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:name, :description, :make_public, :user_key)
+    end
+
+    def own_auth 
+      @project = Project.find(params[:id])
+      if current_user != @project.owner && !user_signed_in?
+        redirect_to @project, notice: "You do not have admin rights"
+      end
     end
 end
