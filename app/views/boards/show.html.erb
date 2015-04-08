@@ -1,5 +1,11 @@
-
-
+ <ol class="breadcrumb">
+ 	<li><%= link_to 'Projects', projects_path %></li>
+    <li >
+      <%= link_to @project.name, project_path(@project) %>
+    </li>
+    <li class="active"><%= link_to @board.name, project_board_path(@board.project,@board)%></li>
+  </ol>
+<div class="container">
 <p>
   <strong>Name:</strong>
   <%= @board.name %>
@@ -12,3 +18,9 @@
 
 <%= link_to 'Edit', edit_project_board_path(@board.project, @board) %> |
 <%= link_to 'Back', project_path(@board.project) %>
+
+
+<%= render partial: 'comments/comment', locals: {commentable: @board}%>
+<br/>
+<%= render partial: 'comments/form', locals: {commentable: @board}%>
+</div>

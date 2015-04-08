@@ -1,15 +1,21 @@
 <div class="container">
-<div class="col-md-8">
-<h2 class="text-center"><%= @project.name %></h2>
+<div class="row">
+<div >
+ <ol class="breadcrumb">
+ 	<li><%= link_to 'Projects', projects_path %></li>
+    <li class="active">
+      <%= link_to @project.name, project_path(@project) %>
+    </li>
+  </ol>
 </div>
 <% if @project.users.include? current_user || current_user == @project.owner %>
 
-<div class="col-md-4" style="margin-top: 10px">
+<div class="pull-right " style="margin-top: 10px">
 <%= render partial: 'projects/invite_user'%>
 </div>
 <% end %>
 </div>
-
+<div class="row">
 <p>
   <strong>Description:</strong>
   <%= @project.description %>
@@ -19,19 +25,35 @@
   <strong>Make public:</strong>
   <%= @project.make_public %>
 </p>
-
-
-
-<%= link_to 'New Board', new_project_board_path(@project)%>
+</div>
+<%= link_to new_project_board_path(@project) do %>
+	 <i class="glyphicon glyphicon-plus"></i> Add Board
+<% end %>
 
 <h3>Boards</h3>
 <div class="row">
-<% @project.boards.each do |b| %>
-	<div class="col-md-3">
-	<h4><%=link_to b.name , project_board_path(@project, b) %></h4>
-	<%= b.description %>
+<div id="my-hover">
+<% @project.boards.order("created_at desc").each do |b| %>
+	<div class="col-md-4  board-primary">
+	<h4><%=link_to b.name , project_board_path(@project, b)%></h4>
+	<%= truncate(b.description,omission: '... (continued)') %><br/>
+	<br/><br/></br></br><hr/>
+	<%= b.owner.name %>  <div class="pull-right">  <%= local_date(b.created_at)%></div>
 	</div>
 <% end %>
 </div>
+</div>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+<%= line_chart User.group_by_week(:created_at).count %>
+
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+
+
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-star"></span> Star
+</button>
+</div>

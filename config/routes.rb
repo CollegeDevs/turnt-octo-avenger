@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :projects do 
-    resources :boards
+    resources :boards do
+      resources :comments, module: :boards
+    end
+    
     member do
       get 'invite_user'
       post 'invite_user'

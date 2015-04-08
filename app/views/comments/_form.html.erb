@@ -1,0 +1,8 @@
+<%= form_for([commentable.comments, Comment.new], url: project_board_comments_path(@project, commentable)) do |f| %>
+	<div class="form-group">
+	<%= f.text_area :body, placeholder: "Add a Comment", class: 'form-control', rows:3%>
+	</div>
+
+	<%= f.submit('Add Comment', class: 'btn btn-primary')%>
+<% end %>
+

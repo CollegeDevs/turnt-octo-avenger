@@ -34,6 +34,6 @@ class User < ActiveRecord::Base
   has_many :projects, through: :projectusers
   has_many :boardusers
   has_many :boards, through: :boardusers
-
+  has_many :comments
 
 end

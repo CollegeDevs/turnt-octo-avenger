@@ -11,6 +11,40 @@ img {
 .navbar-brand {
   font-size: inherit;
   }
+.breadcrumb{
+  background-color: #fff;
+  li{
+  
+  a:link { 
+  color: blue;
+  }
+  a:visited { 
+  color: blue;
+  }
+  a:hover { 
+    color: #CCCCCC;
+  }
+  a:active { 
+    color: blue;
+  }
+    font-size: 20px;
+  }
+}
+
+.mya{
+a:link { 
+  color: #333333;
+}
+a:visited { 
+  color: #FFFFFF;
+}
+a:hover { 
+  color: #CCCCCC;
+}
+a:active { 
+  color: #333333;
+}
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -80,3 +114,25 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+.board-primary { 
+height: 220px;
+width: 225px; 
+padding: 10px;
+background-color: white; 
+margin: 10px;
+/* outer shadows  (note the rgba is red, green, blue, alpha) */
+-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, .4); 
+-moz-box-shadow: 0px 1px 6px rgba(23, 68, 88, .5);
+
+/* rounded corners */
+-webkit-border-radius: 12px;
+-moz-border-radius: 7px; 
+border-radius: 7px;
+
+/* gradients */
+background: -webkit-gradient(linear, left top, left bottom, 
+color-stop(0%, white), color-stop(15%, white), color-stop(100%, #fff)); 
+background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); 
+}
+

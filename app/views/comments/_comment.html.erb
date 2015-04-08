@@ -1,0 +1,16 @@
+<% commentable.comments.order('created_at desc').each do |comment| %>
+	<div class="row">
+	<p class="text-muted"><%= comment.user.name%> 
+	<span class="pull-right"><%= local_date(comment.created_at)%></span></p>
+	</div>
+	<div class="row">
+	<div class="col-md-10">
+	<p><%= comment.body %></p>
+	</div>
+	</div>
+	<p class="pull-right"><%= link_to project_board_comment_path( params[:project_id], commentable,comment,), method: :delete, data: {confirm: 'Are you Sure?'} do%>
+	<i class="glyphicon glyphicon-trash"></i> 
+	<% end %>
+	</p>
+	<br>
+<% end %>
