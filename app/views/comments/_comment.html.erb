@@ -8,8 +8,11 @@
 	<p><%= comment.body %></p>
 	</div>
 	</div>
-	<p class="pull-right"><%= link_to project_board_comment_path( params[:project_id], commentable,comment,), method: :delete, data: {confirm: 'Are you Sure?'} do%>
+	<p class="pull-right"><%= link_to project_board_comment_path( params[:project_id], commentable,comment), method: :delete, data: {confirm: 'Are you Sure?'} do%>
 	<i class="glyphicon glyphicon-trash"></i> 
+	<% end %>       
+	<%= link_to edit_project_board_comment_path( params[:project_id], commentable,comment) do %>
+	<i class="glyphicon glyphicon-pencil"></i> 
 	<% end %>
 	</p>
 	<br>

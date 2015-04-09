@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-	before_action :set_comment, only: [:edit, :update]
 	before_action :authenticate_user!
 
 	def create
@@ -11,16 +10,15 @@ class CommentsController < ApplicationController
 	end
 
 	def edit
-		
 	end
 
 	def update
-		@comment.update(comment_params)
-		redirect_to project_board_path(params[:project_id], @commentable), notice: "Updated the comment"
+		if @comment.update(comment_params)
+			redirect_to project_board_path(params[:project_id], @commentable), notice: "Updated the comment"
+		end
 	end
 
 	def destroy
-		@comment = Comment.find(params[:id])
 		@comment.destroy
 		redirect_to project_board_path(params[:project_id], @commentable)
 	end
@@ -29,10 +27,6 @@ class CommentsController < ApplicationController
 
 	def comment_params
 		params.require(:comment).permit(:body)
-	end
-
-	def set_comment
-		@comment = Comment.find(params[:id])
 	end
 
 end
