@@ -1,0 +1,15 @@
+<table class="table table-bordered">
+    <% @events.recent.each do |event| %>
+      <tr>
+        <td><%= local_date(event.start_time) %></td>
+        <td><%= event.name %></td>
+        <td><%= local_date(event.end_time) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="calendar">
+</div>
+
+<br>

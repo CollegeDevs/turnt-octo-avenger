@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    
+
   end
 
   # GET /projects/new
@@ -94,7 +94,7 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:name, :description, :make_public, :user_key)
     end
 
-    def own_auth 
+    def own_auth
       @project = Project.find(params[:id])
       if current_user != @project.owner && !user_signed_in?
         redirect_to @project, notice: "You do not have admin rights"

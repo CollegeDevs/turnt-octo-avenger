@@ -1,0 +1,12 @@
+<table class="table table-bordered">
+    <% element.events.recent.each do |event| %>
+      <tr>
+        <td><%= local_date(event.start_time) %></td>
+        <td><%= link_to event.name ,  project_event_path(element, event) %></td>
+        <td><%= local_date(event.end_time) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

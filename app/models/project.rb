@@ -17,4 +17,5 @@ class Project < ActiveRecord::Base
 	has_many :boards
 	has_many :projectusers
 	has_many :users, through: :projectusers
+	has_many :events
 end

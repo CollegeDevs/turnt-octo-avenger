@@ -8,6 +8,8 @@
     </li>
   </ol>
 </div>
+
+
 <% if @project.users.include? current_user || current_user == @project.owner %>
 
 <div class="pull-right " style="margin-top: 10px">
@@ -15,6 +17,23 @@
 </div>
 <% end %>
 </div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<div class="calendar">
+</div>
+</div>
+<div class="events">
+<div class="col-md-4 ">
+  <h3 class="text-center">Events</h3>
+  <%= render partial: 'events/index', locals: {element: @project}%>
+  <%= link_to 'Add Event', new_project_event_path(@project, @event)%>
+</div>
+</div>
+</div>
+
+</div>
+<div class="container">
 <div class="row">
 <p>
   <strong>Description:</strong>
@@ -43,17 +62,9 @@
 <% end %>
 </div>
 </div>
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
-<%= line_chart User.group_by_week(:created_at).count %>
 
+</div>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
-
-
-
-<button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-star"></span> Star
-</button>
-</div>

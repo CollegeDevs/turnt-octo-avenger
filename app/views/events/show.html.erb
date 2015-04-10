@@ -1,0 +1,31 @@
+<div class="calendar">
+</div>
+
+
+
+
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @event.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @event.end_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_event_path(@event.project, @event) %> |
+<%= link_to 'Back', project_path(@event.project) %>

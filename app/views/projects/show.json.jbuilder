@@ -1,1 +1,6 @@
-json.extract! @project, :id, :name, :description, :make_public, :created_at, :updated_at
+json.array!(@project.events) do |event|
+  json.extract! event, :id, :name
+  json.start event.start_time
+  json.end event.end_time
+  json.url project_url(@project, format: :json)
+end
