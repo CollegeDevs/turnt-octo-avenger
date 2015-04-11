@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409192203) do
+ActiveRecord::Schema.define(version: 20150411150942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 20150409192203) do
     t.datetime "updated_at",  null: false
     t.integer  "project_id"
     t.integer  "owner_id"
+    t.string   "slug"
   end
+
+  add_index "boards", ["slug"], name: "index_boards_on_slug", unique: true, using: :btree
 
   create_table "boardusers", force: :cascade do |t|
     t.integer  "user_id"
@@ -51,7 +54,10 @@ ActiveRecord::Schema.define(version: 20150409192203) do
     t.integer  "user_id"
     t.integer  "project_id"
     t.integer  "board_id"
+    t.string   "slug"
   end
+
+  add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -61,7 +67,10 @@ ActiveRecord::Schema.define(version: 20150409192203) do
     t.datetime "updated_at",  null: false
     t.date     "due_date"
     t.integer  "owner_id"
+    t.string   "slug"
   end
+
+  add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true, using: :btree
 
   create_table "projectusers", force: :cascade do |t|
     t.integer  "user_id"
@@ -85,9 +94,11 @@ ActiveRecord::Schema.define(version: 20150409192203) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "name"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
 end

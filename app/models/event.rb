@@ -12,10 +12,17 @@
 #  user_id     :integer
 #  project_id  :integer
 #  board_id    :integer
+#  slug        :string
+#
+# Indexes
+#
+#  index_events_on_slug  (slug) UNIQUE
 #
 
 class Event < ActiveRecord::Base
 
+	extend FriendlyId
+	friendly_id :name, use: :slugged
 	#after_validation :check_start_time_format
 	#after_validation :check_end_time_format
 

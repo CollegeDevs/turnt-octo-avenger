@@ -10,6 +10,11 @@
 #  updated_at  :datetime         not null
 #  due_date    :date
 #  owner_id    :integer
+#  slug        :string
+#
+# Indexes
+#
+#  index_projects_on_slug  (slug) UNIQUE
 #
 
 require 'test_helper'

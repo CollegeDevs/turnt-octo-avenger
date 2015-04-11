@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def show
-    @event = @element.events.find(params[:id])
+    @event = @element.events.friendly.find(params[:id])
   end
 
   def new
@@ -18,7 +18,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = @element.events.find(params[:id])
+    @event = @element.events.friendly.find(params[:id])
   end
 
   # POST /events
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    @event = @element.events.find(params[:id])
+    @event = @element.events.friendly.find(params[:id])
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to project_event_path(@element, @event), notice: 'Event was successfully updated.' }

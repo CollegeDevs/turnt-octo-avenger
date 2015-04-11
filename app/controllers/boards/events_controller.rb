@@ -4,7 +4,7 @@ class Events::EventsController < EventsController
   private
 
 	def set_element
-		@element = Board.find(params[:board_id])	
+		@element = Board.friendly.find(params[:board_id])	
 	end
 
 

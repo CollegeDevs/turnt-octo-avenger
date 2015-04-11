@@ -9,6 +9,11 @@
 #  updated_at  :datetime         not null
 #  project_id  :integer
 #  owner_id    :integer
+#  slug        :string
+#
+# Indexes
+#
+#  index_boards_on_slug  (slug) UNIQUE
 #
 
 require 'test_helper'

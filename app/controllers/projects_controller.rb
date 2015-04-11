@@ -66,8 +66,8 @@ class ProjectsController < ApplicationController
   end
 
   def invite_user
-    @user = User.find_by_email(params[:my_input])
-    @project = Project.find(params[:id])
+    @user = User.friendly.find_by_email(params[:my_input])
+    @project = Project.friendly.find(params[:id])
     if @project.users.include? @user
       redirect_to @project, notice: 'Already a member'
     elsif @user
@@ -86,7 +86,7 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = current_user.projects.find(params[:id])
+      @project = current_user.projects.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -95,7 +95,7 @@ class ProjectsController < ApplicationController
     end
 
     def own_auth
-      @project = Project.find(params[:id])
+      @project = Project.friendly.find(params[:id])
       if current_user != @project.owner && !user_signed_in?
         redirect_to @project, notice: "You do not have admin rights"
       end
