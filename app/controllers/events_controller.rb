@@ -18,6 +18,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event = @element.events.find(params[:id])
   end
 
   # POST /events
@@ -27,7 +28,7 @@ class EventsController < ApplicationController
     @event.user = current_user
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @element, notice: 'Event was successfully created.' }
+        format.html { redirect_to @element.project_path(params[:project_id]), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -39,9 +40,10 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    @event = @element.events.find(params[:id])
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to project_event_path(@element, @event), notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }

@@ -1,6 +1,70 @@
+<div class="row">
+ <ol class="breadcrumb">
+   <li><%= link_to 'Projects', projects_path %></li>
+    <li class="active">
+      <%= link_to "Back", @element  %>
+    </li>
+  </ol>
+</div>
+
+
+
+
+
+
 <h1>Editing Event</h1>
 
-<%= render 'form' %>
+<%= simple_form_for([@element , @event]) do |f| %>
+  <% if @element.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <%= f.input :name, autofocus: true %>
+    <%= f.input :description, input_html: {cols: 30}  %>
+
+
+  <br>
+  <br>
+
+
+      <%= f.label :Starting %>
+      <div class='input-group date' id='datetimepicker1'>
+        <%= f.text_field :start_time, class: 'form-control'%>
+          <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+      </div>
+
+      <%= f.label :Ending %>
+
+
+      <div class='input-group date' id='datetimepicker2'>
+        <%= f.text_field :end_time, class: 'form-control'%>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+      </div>
+
+
+
+  <br>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary'%>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+      $(function () {
+           $('#datetimepicker1').datetimepicker({format: 'MMMM Do YYYY, h:mm'});
+           $('#datetimepicker2').datetimepicker({format: 'MMMM Do YYYY, h:mm'});
+      });
+</script>

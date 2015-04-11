@@ -1,15 +1,12 @@
-<table class="table table-bordered">
-    <% @events.recent.each do |event| %>
-      <tr>
-        <td><%= local_date(event.start_time) %></td>
-        <td><%= event.name %></td>
-        <td><%= local_date(event.end_time) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<div class="calendar">
+<div class="container">
+   <ol class="breadcrumb">
+     <li><%= link_to 'Projects', projects_path %></li>
+      <li class="active">
+        <%= link_to 'Back' ,project_path(params[:project_id]) %>
+      </li>
+    </ol>
+<main role="main">
+  <div class="calendar3">
+  </div>
+</main>
 </div>
-
-<br>

@@ -6,13 +6,13 @@ $(document).on "page:change", ->
 	$ ->
 		$('.calendar').fullCalendar(
 	    header: {
-	      left: '',
+	      left: 'title',
 	      center: 'prev,today,agendaDay,agendaWeek,month,next',
 	      right: ''
 	    },
 
-	    defaultView: 'agendaWeek',
-	    height: 300,
+	    defaultView: 'month',
+	    height: 400,
 	    editable: true,
 	    resizable: true,
 

@@ -1,11 +1,11 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
   before_action :own_auth, only: [:edit, :update, :destroy, :invite_user]
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = current_user.projects.all
   end
 
   # GET /projects/1
@@ -86,7 +86,7 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params[:id])
+      @project = current_user.projects.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

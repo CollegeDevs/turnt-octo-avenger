@@ -74,8 +74,8 @@ gem "figaro"
 
 gem 'public_activity'
 
-gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
-                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+#gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              #:git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'simple_form'
 
 gem "chartkick"
@@ -83,3 +83,5 @@ gem 'lazy_high_charts'
 gem 'groupdate'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+gem 'jquery-ui-rails'
