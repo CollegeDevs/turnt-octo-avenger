@@ -1,18 +1,18 @@
-<% commentable.comments.order('created_at desc').each do |comment| %>
+<% @board.comments.order('created_at desc').each do |comment| %>
 	<div class="row">
-	<p class="text-muted"><%= comment.user.name%> 
+	<p class="text-muted"><%= comment.user.name%>
 	<span class="pull-right"><%= local_date(comment.created_at)%></span></p>
 	</div>
 	<div class="row">
 	<div class="col-md-10">
-	<p><%= comment.body %></p>
+	<p><%= markdownify comment.body %></p>
 	</div>
 	</div>
-	<p class="pull-right"><%= link_to project_board_comment_path( params[:project_id], commentable,comment), method: :delete, data: {confirm: 'Are you Sure?'} do%>
-	<i class="glyphicon glyphicon-trash"></i> 
-	<% end %>       
-	<%= link_to edit_project_board_comment_path( params[:project_id], commentable,comment) do %>
-	<i class="glyphicon glyphicon-pencil"></i> 
+	<p class="pull-right"><%= link_to project_board_comment_path( params[:project_id], @board,comment), method: :delete,data: {confirm: 'Are you sure?'},remote: true do%>
+	<i class="glyphicon glyphicon-trash"></i>
+	<% end %>
+	<%= link_to edit_project_board_comment_path( params[:project_id], @board,comment), remote: true do %>
+	<i class="glyphicon glyphicon-pencil"></i>
 	<% end %>
 	</p>
 	<br>

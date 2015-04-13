@@ -1,8 +1,7 @@
-<%= form_for([commentable.comments, Comment.new], url: project_board_comments_path(@project, commentable)) do |f| %>
+<%= form_for([@board.comments, Comment.new], url: project_board_comments_path(@project, @board), remote: true) do |f| %>
 	<div class="form-group">
 	<%= f.text_area :body, placeholder: "Add a Comment", class: 'form-control', rows:3%>
 	</div>
 
-	<%= f.submit('Add Comment', class: 'btn btn-primary')%>
+	<%= f.submit('Add Comment', class: 'btn btn-primary', remote:true)%>
 <% end %>
-

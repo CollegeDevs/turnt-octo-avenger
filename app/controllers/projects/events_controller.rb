@@ -4,6 +4,6 @@ class Projects::EventsController < EventsController
   private
 
 	def set_element
-		@element = Project.friendly.find(params[:project_id])	
+		@element = current_user.projects.friendly.find(params[:project_id])	
 	end
 end

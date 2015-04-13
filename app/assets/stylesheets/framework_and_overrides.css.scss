@@ -4,10 +4,23 @@
 @import 'bootstrap-datetimepicker';
 
 // make all images responsive by default
-img {
-  @extend .img-responsive;
-  margin: 0 auto;
+.description{
+  img{
+    @extend .img-responsive;
+    margin: 50px auto;
   }
+}
+
+img {
+
+  margin: 50px auto;
+  }
+.comment{
+  img{
+    height: 300px;
+    width: 500px;
+  }
+}
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
@@ -32,20 +45,6 @@ img {
   }
 }
 
-.mya{
-a:link {
-  color: #333333;
-}
-a:visited {
-  color: #FFFFFF;
-}
-a:hover {
-  color: #CCCCCC;
-}
-a:active {
-  color: #333333;
-}
-}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -74,6 +73,12 @@ main {
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
+  a{
+    color: 'blue';
+  }
+  a:hover{
+    color: 'green';
+  }
   }
 section {
   @extend .row;

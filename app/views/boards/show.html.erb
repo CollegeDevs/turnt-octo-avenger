@@ -6,6 +6,7 @@
     <li class="active"><%= link_to @board.name, project_board_path(@board.project,@board)%></li>
   </ol>
 <div class="container">
+<div class="description">
 <p>
   <strong>Name:</strong>
   <%= @board.name %>
@@ -13,14 +14,18 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @board.description %>
+  <%= markdownify @board.description %>
 </p>
-
+</div>
 <%= link_to 'Edit', edit_project_board_path(@board.project, @board) %> |
 <%= link_to 'Back', project_path(@board.project) %>
 
 
-<%= render partial: 'comments/comment', locals: {commentable: @board}%>
+<div class="comment">
+<%= render partial: 'comments/comment' %>
+</div>
 <br/>
-<%= render partial: 'comments/form', locals: {commentable: @board}%>
+<div class='comment_form'>
+<%= render partial: 'comments/form' %>
+</div>
 </div>

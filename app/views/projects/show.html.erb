@@ -17,14 +17,10 @@
 </div>
 <% end %>
 </div>
-</div>
-<div class="container">
+
+
+
 <div class="row">
-<div class="col-md-8">
-<div class="calendar">
-</div>
-</div>
-<div class="events">
 <div class="col-md-4">
   <h3 class="text-center">Events</h3>
   <%= render partial: 'events/index', locals: {element: @project}%>
@@ -32,10 +28,10 @@
   <%= link_to 'All Events', project_events_path(@project), class: "pull-right"%>
 </div>
 </div>
-</div>
 
-</div>
-<div class="container">
+
+
+
 <div class="row">
 <p>
   <strong>Description:</strong>

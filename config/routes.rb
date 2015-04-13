@@ -3,18 +3,25 @@ Rails.application.routes.draw do
   root 'projects#index'
 
   devise_for :users
-  resources :projects do 
+  resources :projects do
     resources :events, module: :projects
     resources :boards do
-      resources :comments, module: :boards
-      resources :events, module: :boards
+      resources :comments
     end
-    
+
     member do
       get 'invite_user'
       post 'invite_user'
     end
   end
+
+
+  unless Rails.application.config.consider_all_requests_local
+    match '404', via: :all, to: 'errors#page_not_found'
+    match '422', via: :all, to: 'errors#error_422'
+    match '500', via: :all, to: 'errors#server_error'
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,4 +1,4 @@
-<%= form_for([@project ,Board.new]) do |f| %>
+<%= form_for([@project ,Board.new])do |f| %>
   <% if @board.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@board.errors.count, "error") %> prohibited this board from being saved:</h2>
@@ -21,6 +21,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Create', class: 'btn btn-primary'%>
+    <%= f.submit 'Create', class: 'btn btn-primary' %>
   </div>
 <% end %>
