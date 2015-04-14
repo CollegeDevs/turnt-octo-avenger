@@ -1,10 +1,13 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:new, :create,:edit, :update, :destroy]
+  before_action :set_project, only: [:index,:new, :create,:edit, :update, :destroy]
   # GET /boards
   # GET /boards.json
   def index
-
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /boards/1

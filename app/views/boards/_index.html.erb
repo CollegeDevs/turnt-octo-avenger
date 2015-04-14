@@ -1,0 +1,13 @@
+<div class="myboards">
+<h3>Boards</h3>
+<% project.boards.order("created_at desc").each do |b| %>
+  <div class="col-md-4  board-primary">
+    <h4><%=link_to b.name , project_board_path(project, b)%></h4>
+    <%= truncate(b.description,omission: '... (continued)') %><br/>
+    <br/><br/></br></br><hr/>
+    <div class="board_owner">
+      <%= b.owner.name %>  <div class="pull-right">  <%= local_date(b.created_at)%></div>
+    </div>
+  </div>
+<% end %>
+</div>

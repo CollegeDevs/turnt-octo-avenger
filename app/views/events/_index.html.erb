@@ -1,12 +1,35 @@
-<table class="table table-bordered">
-    <% element.events.recent.each do |event| %>
-      <tr>
-        <td><%= local_date(event.start_time) %></td>
-        <td><%= link_to event.name ,  project_event_path(element, event) %></td>
-        <td><%= local_date(event.end_time) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="container">
+   <ol class="breadcrumb">
+     <li><%= link_to 'Projects', projects_path %></li>
+      <li class="active">
+        <%= link_to 'Back' ,project_path(project) %>
+      </li>
+    </ol>
+<main role="main">
+  <div class="col-sm-10">
+  <div class="calendar">
+  </div>
+</div>
 <br>
+
+<script type="text/javascript">
+  $('.calendar').fullCalendar({
+  header: {
+    left: 'prev,next',
+    center: 'title',
+    right: 'today,agendaDay,agendaWeek,month'
+  },
+  defaultView: 'month',
+  height: 600,
+  editable: true,
+  resizable: true,
+  events: '/projects.json'
+  }, {
+  color: 'red'
+  });
+
+</script>
+
+<%= link_to 'Add Event', new_project_event_path(project, @event)%>
+</main>
+</div>

@@ -87,3 +87,5 @@ gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 gem 'jquery-ui-rails'
 gem 'friendly_id', '~> 5.1.0'
+gem "rubycritic", :require => false
+gem 'bettertabs'
