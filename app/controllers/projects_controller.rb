@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :team]
   before_action :authenticate_user!
   before_action :own_auth, only: [:edit, :update, :destroy, :invite_user]
   # GET /projects
@@ -65,6 +65,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def team
+    @users = @project.users
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+
   def invite_user
     @user = User.friendly.find_by_email(params[:my_input])
     @project = Project.friendly.find(params[:id])
@@ -80,7 +89,7 @@ class ProjectsController < ApplicationController
   end
 
   def remove_user
-
+    
   end
 
   private

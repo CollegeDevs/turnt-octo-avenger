@@ -89,3 +89,6 @@ gem 'jquery-ui-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem "rubycritic", :require => false
 gem 'bettertabs'
+gem 'dropbox-sdk'
+gem 'remotipart', '~> 1.2.1'
+gem 'google-api-client'

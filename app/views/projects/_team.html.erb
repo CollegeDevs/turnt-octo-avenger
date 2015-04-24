@@ -1,0 +1,9 @@
+<h2>Team</h2>
+<table class= "table">
+<% @users.each do |user| %>
+  <tr/>
+  <td><h3><%= user.name %></h3></td>
+  <td><p><%= user.email %></p></td>
+  <tr/>
+<% end %>
+</table>

@@ -6,6 +6,7 @@
   <li class='active'><%= link_to "Project", project_path(@project)%></li>
   <li><%= link_to "Boards", project_boards_path(@project), remote: true%></li>
   <li><%= link_to "Events", project_events_path(@project), remote: true%></li>
+  <li><%= link_to "Team", team_project_path(@project), remote: true %></li>
 </ul>
 </div>
 

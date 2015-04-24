@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     member do
       get 'invite_user'
       post 'invite_user'
+      get 'team'
+      
     end
   end
 
@@ -21,6 +23,9 @@ Rails.application.routes.draw do
     match '422', via: :all, to: 'errors#error_422'
     match '500', via: :all, to: 'errors#server_error'
   end
+
+  #get '/auth', to: 'drives#auth'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
