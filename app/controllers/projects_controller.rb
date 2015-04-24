@@ -28,6 +28,9 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.owner = current_user
+    @pu = current_user.projectusers.new
+    @pu.project = @project
+    @pu.save
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -82,6 +85,7 @@ class ProjectsController < ApplicationController
     elsif @user
       @pu = @user.projectusers.new
       @pu.project = @project
+      @pu.save
       redirect_to @project, notice: 'User was successfully Added.'
     else
       redirect_to @project, notice: 'Could not found the User'
@@ -89,7 +93,7 @@ class ProjectsController < ApplicationController
   end
 
   def remove_user
-    
+
   end
 
   private
