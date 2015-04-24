@@ -1,5 +1,6 @@
 <div class="myboards">
 <h3>Boards</h3>
+<p class="pull-right"><%= link_to "New board", new_project_board_path(project)%></p>
 <% project.boards.order("created_at desc").each do |b| %>
   <div class="col-md-4  board-primary">
     <h4><%=link_to b.name , project_board_path(project, b)%></h4>
