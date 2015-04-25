@@ -6,6 +6,10 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = current_user.projects.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /projects/1
