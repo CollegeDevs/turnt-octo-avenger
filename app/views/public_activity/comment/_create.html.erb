@@ -1,0 +1,18 @@
+<div class="row">
+
+  <div class="col-sm-1"><i class="fa fa-comments-o fa-5x"  style="color: brown;"></i>
+  </div>
+  <div class="col-sm-8">
+    <div class="row">
+      <h4><%= activity.owner.name %>
+        <% if activity.trackable %>
+        added a comment to <%= link_to activity.trackable.board.name, project_board_path(@project,activity.trackable.board), style: 'color: #6495ED;'%>
+      </h4>
+    </div>
+    <p class="text-muted"><%= truncate(activity.trackable.body)%>.......<%= local_time_ago(activity.trackable.created_at) %></p>
+    <% else %>
+    added a comment to the board which has been deleted
+    <p class="text-muted"><%= local_time_ago(activity.trackable.created_at) %></p>
+    <% end %>
+  </div>
+</div>

@@ -17,6 +17,8 @@
 #
 
 class Board < ActiveRecord::Base
+	include PublicActivity::Common
+
 	extend FriendlyId
 	friendly_id :name, use: :slugged
 

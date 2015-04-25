@@ -1,0 +1,12 @@
+<br/>
+<div class="container">
+
+  <h2 class="text-center">All Activities </h2>
+<br/>
+  <% @activities.order("created_at desc").each do |activity|%>
+  <%= render_activity activity%>
+  <br/>
+  <br/>
+<% end %>
+
+</div>

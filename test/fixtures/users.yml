@@ -18,6 +18,7 @@
 #  username               :string
 #  name                   :string
 #  slug                   :string
+#  dropbox_session        :string
 #
 # Indexes
 #

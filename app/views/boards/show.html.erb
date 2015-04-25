@@ -1,5 +1,7 @@
+ <div class="container">
+ <hr/>
  <ol class="breadcrumb">
- 	<li><%= link_to 'Projects', projects_path %></li>
+
     <li >
       <%= link_to @project.name, project_path(@project) %>
     </li>
@@ -43,6 +45,7 @@
 <br/>
 <div class='comment_form'>
 <%= render partial: 'comments/form' %>
+</div>
 </div>
 </div>
 </div>

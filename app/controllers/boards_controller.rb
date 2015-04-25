@@ -32,6 +32,7 @@ class BoardsController < ApplicationController
     @board.project = @project
     respond_to do |format|
       if @board.save
+        @board.create_activity :create, owner: current_user
         format.html { redirect_to project_board_path(@project,@board), notice: 'Board was successfully created.' }
         format.json { render :show, status: :created, location: @board }
       else
@@ -46,6 +47,7 @@ class BoardsController < ApplicationController
   def update
     respond_to do |format|
       if @board.update(board_params)
+        @board.create_activity :update, owner: current_user
         format.html { redirect_to project_board_path(@project,@board), notice: 'Board was successfully updated.' }
         format.json { render :show, status: :ok, location: @board }
       else
@@ -59,6 +61,7 @@ class BoardsController < ApplicationController
   # DELETE /boards/1.json
   def destroy
     @board.destroy
+    @board.create_activity :destroy, owner: current_user
     respond_to do |format|
       format.html { redirect_to project_board_url(@project,@board), notice: 'Board was successfully destroyed.' }
       format.json { head :no_content }

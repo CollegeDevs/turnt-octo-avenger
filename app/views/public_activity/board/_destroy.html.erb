@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-sm-1">
+    <i class="fa fa-pencil-trash-o fa-5x" style="color: purple;"></i>
+  </div>
+<div class="col-sm-8">
+  <div class="row">
+  <%= activity.owner.name %>
+  <% if activity.trackable %>
+  <% else %>
+  destroyed the board
+  <p class="text-muted"><%= local_time_ago(activity.trackable.created_at) %></p>
+  <% end %>
+</div>
+</div>
+</div>

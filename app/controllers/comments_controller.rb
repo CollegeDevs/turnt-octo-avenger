@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 		@comment.user = current_user
 		respond_to do |format|
 			if @comment.save
+				@comment.create_activity :create, owner: current_user
 				format.html {redirect_to project_board_path(params[:project_id], @board), notice: "Added the comment"}
 				format.js
 			end

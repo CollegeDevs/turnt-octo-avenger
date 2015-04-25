@@ -11,6 +11,7 @@
 #
 
 class Comment < ActiveRecord::Base
+	include PublicActivity::Common
 	belongs_to :board
 	belongs_to :user
 end

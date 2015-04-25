@@ -2,6 +2,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 // make all images responsive by default
 .description{
@@ -9,6 +11,10 @@
     @extend .img-responsive;
     margin: 50px auto;
   }
+}
+// size of glyphicon
+.gsize{
+  font-size: 32px;
 }
 .my_nav{
   background-color: #fff;
@@ -44,6 +50,7 @@ img {
 .navbar-brand {
   font-size: inherit;
   }
+
 .breadcrumb{
   background-color: #fff;
   li{
@@ -92,6 +99,7 @@ main {
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
+  font-family: "Trebuchet MS", Helvetica, sans-serif ;
   a{
     color: 'blue';
   }

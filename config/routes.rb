@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   root 'projects#index'
 
   devise_for :users
@@ -8,13 +10,13 @@ Rails.application.routes.draw do
     resources :boards do
       resources :comments
     end
-
     member do
       get 'invite_user'
       post 'invite_user'
       get 'team'
-      
+
     end
+    resources :notifications, only: [:index]
   end
 
 

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require moment
+//= require local_time
 //= require fullcalendar
 //= require bootstrap-datetimepicker
 //= require bootstrap-sprockets
