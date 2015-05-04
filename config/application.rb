@@ -23,6 +23,7 @@ module Coldev1
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.exceptions_app = self.routes  
+    config.exceptions_app = self.routes
+    config.active_job.queue_adapter = :sucker_punch
   end
 end

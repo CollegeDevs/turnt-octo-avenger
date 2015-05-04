@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     @event.user = current_user
     respond_to do |format|
       if @event.save
-        #format.html { redirect_to @project.project_path(params[:project_id]), notice: 'Event was successfully created.' }
+        format.html { redirect_to @project, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
