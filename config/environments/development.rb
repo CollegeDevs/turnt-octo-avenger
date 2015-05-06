@@ -38,4 +38,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.assets.enabled = true
+  config.assets.initialize_on_precompile = true
+  config.assets.precompile += %w(application.css.scss framework_and_overrides.css.scss application.js )
+
 end
