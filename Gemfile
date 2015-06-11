@@ -92,5 +92,5 @@ gem 'bettertabs'
 gem 'dropbox-sdk'
 gem 'remotipart', '~> 1.2.1'
 gem 'google-api-client'
-gem 'font-awesome-sass'
+
 gem 'asset_sync'
