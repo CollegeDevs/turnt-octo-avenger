@@ -229,8 +229,6 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
-    font-awesome-sass (4.3.2.1)
-      sass (~> 3.2)
     formatador (0.2.5)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
@@ -472,7 +470,6 @@ DEPENDENCIES
   devise (~> 3.4.1)
   dropbox-sdk
   figaro
-  font-awesome-sass
   friendly_id (~> 5.1.0)
   fullcalendar-rails
   gemoji
