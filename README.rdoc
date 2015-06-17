@@ -1,28 +1,26 @@
-== README
+== Project Management demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a demo of a project management site using rails the demo can be found here
 
-Things you may want to cover:
+# http://arcane-hamlet-4660.herokuapp.com do not visit over https
 
-* Ruby version
+since this is using cloudfront so please visit the demo with http otherwise styles will not load.
 
-* System dependencies
+##  Usage & Features
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Since i made this for fun only so this is not a complete solution but i have tried to put all things together to  provide a free and open source hackable project management 
+  
+*  every project is by deafult private and the owner can add any user with a correct username
+*  every project has_many board , markup is enabled so please be sure to check this out before using this 
+   https://guides.github.com/features/mastering-markdown/
+* comments can be added 
+* time managemnt 
+* tasks 
+* calander for events
+* i left room for many more features but due to lack of time i did not joined the bits and pieces so there are some   feature.Please feel free to hack the code and commit and change you would like 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Note
+
+ This is completely for fun and for private stuff for hackers 
+
